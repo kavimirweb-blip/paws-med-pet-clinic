@@ -86,14 +86,14 @@ nav .btn{padding:.75em 1.3em;font-size:.74rem}
 .cg{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:40px}
 .fm{display:grid;gap:22px}
 .ll{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-l);margin-bottom:9px;font-weight:700}
-.in{width:100%;padding:1em 1.2em;border-radius:14px;border:2px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff}
-.in::placeholder{color:rgba(255,255,255,.5)}
-.in:focus{border-color:var(--gold-l);outline:0}
+.fi{width:100%;padding:1em 1.2em;border-radius:14px;border:2px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff}
+.fi::placeholder{color:rgba(255,255,255,.5)}
+.fi:focus{border-color:var(--gold-l);outline:0}
 .cl{display:flex;flex-wrap:wrap;gap:9px}
 .chip{padding:.65em 1.2em;border-radius:99px;border:2px solid rgba(255,255,255,.3);font-size:.9rem;font-weight:700;transition:.25s}
 .chip:hover{border-color:var(--gold-l)}
 .chip[aria-pressed=true]{background:var(--gold-l);border-color:var(--gold-l);color:var(--teal2)}
-select.in option{color:#000}
+select.fi option{color:#000}
 .pcard{background:var(--cream);color:var(--ink);border-radius:24px;overflow:hidden;box-shadow:0 36px 60px -30px #000;transform:rotate(1.5deg);transition:transform .4s var(--ease)}
 .pcard:hover{transform:none}
 .pcard .hd{background:var(--sand);padding:20px 24px;display:flex;align-items:center;gap:14px;border-bottom:2px dashed var(--line)}
@@ -262,9 +262,9 @@ select.in option{color:#000}
     <div class="rv"><p class="lab">The family card</p><h2 style="margin-top:12px">Tell us who<br>we're <em>meeting.</em></h2></div>
     <div class="cg rv">
       <div class="fm">
-        <div><div class="ll">Your pet's name</div><input class="in" id="pn" maxlength="18" placeholder="e.g. Bruno" autocomplete="off"></div>
+        <div><div class="ll">Your pet's name</div><input class="fi" id="pn" maxlength="18" placeholder="e.g. Bruno" autocomplete="off"></div>
         <div><div class="ll">Who are they?</div><div class="cl" id="ps"></div></div>
-        <div><div class="ll">How old?</div><select class="in" id="pa"></select></div>
+        <div><div class="ll">How old?</div><select class="fi" id="pa"></select></div>
         <div><div class="ll">What do they need?</div><div class="cl" id="pw"></div></div>
       </div>
       <div>
