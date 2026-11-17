@@ -122,7 +122,7 @@ select.in option{color:#000}
 
 /* booking */
 .book{background:var(--sand)}
-.bg{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.bg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
 .bf{background:#fff;border:2px solid var(--line);border-radius:26px;padding:30px;display:grid;gap:20px}
 .bf .ll{color:var(--mute)}
 .bf .chip{border-color:var(--line);background:var(--cream);color:var(--ink)}
@@ -203,7 +203,8 @@ select.in option{color:#000}
 
 @media(max-width:900px){
   nav ul{display:none}
-  .hero .wrap,.cg,.bg,.cc,.vg{grid-template-columns:1fr;gap:38px}
+  .hero .wrap,.cg,.bg,.cc,.vg{grid-template-columns:minmax(0,1fr);gap:38px}
+  .bg>*,.cg>*,.cc>*,.vg>*,.hero .wrap>*{min-width:0}
   .hero .wrap{min-height:0;padding:36px 0 56px}
   .hph{max-width:400px;margin:0 auto}
   .sec{padding:70px 0}
@@ -369,7 +370,7 @@ const SP=[['Dog','golden.jpg'],['Puppy','shihtzu.jpg'],['Cat','kitten.jpg'],['Sm
 const AGES=['Under 3 months','3 to 12 months','1 to 3 years','3 to 7 years','7 years and older'];
 const NEED=['Check-up','Vaccination','Deworming','Grooming','Treats and food'];
 const C={sp:0,age:0,need:new Set(['Check-up'])};
-const chips=(id,list,get,set)=>{const el=$(id);el.innerHTML='';list.forEach((x,i)=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=x[0]||x;b.setAttribute('aria-pressed',get(i,x));b.onclick=()=>{set(i,x);cardUpd()};el.appendChild(b)})};
+const chips=(id,list,get,set)=>{const el=$(id);el.innerHTML='';list.forEach((x,i)=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=Array.isArray(x)?x[0]:x;b.setAttribute('aria-pressed',get(i,x));b.onclick=()=>{set(i,x);cardUpd()};el.appendChild(b)})};
 $('#pa').innerHTML=AGES.map((a,i)=>`<option value="${i}">${a}</option>`).join('');$('#pa').onchange=e=>{C.age=+e.target.value;cardUpd()};$('#pn').oninput=cardUpd;
 function cardUpd(){const n=$('#pn').value.trim()||'Bruno';
   chips('#ps',SP,i=>i===C.sp,i=>C.sp=i);chips('#pw',NEED,(i,x)=>C.need.has(x),(i,x)=>C.need.has(x)?(C.need.size>1&&C.need.delete(x)):C.need.add(x));
